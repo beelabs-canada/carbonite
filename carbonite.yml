@@ -1,0 +1,9 @@
+---
+secrets:
+  - a06933a9ca7377b1fca0aea211cc1d84ef03682c
+app_url: https://carbonite.test/
+database:
+  type: sqlite
+  path: db/database.sqlite
+  username: ''
+  password: ''
