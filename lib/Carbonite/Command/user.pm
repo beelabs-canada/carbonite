@@ -58,8 +58,9 @@ sub unique {
 sub last_id
 {
   my ($self, $table ) = @_;
-  return $self->app->{dbh}->select_one('SELECT id FROM '.$table.' ORDER BY ID DESC LIMIT 1');
-}
+  my $last = $self->app->{dbh}->select_one('SELECT id FROM '.$table.' ORDER BY ID DESC LIMIT 1');
+  return ( $last ) ? $last : 0;
+ }
 
 
 =head1 SYNOPSIS
