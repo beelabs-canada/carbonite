@@ -29,6 +29,8 @@ sub startup {
 
   $r->get('/test')->to('Example#test');
 
+  $r->get('/dashboard')->to('Dashboard#home');
+
   $self->hook( before_dispatch => sub {
     my ( $self ) = @_;
     # notice: url must be fully-qualified or absolute, ending in '/' matters.

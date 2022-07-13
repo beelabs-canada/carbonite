@@ -15,6 +15,7 @@ sub run  {
 
   die $self->usage unless getopt \@args, 'v|verbose' => \my $_verbose, 'e|email=s' => \my $_email;
 
+  # === add user (default with no arguments) ==== #
   my ( $secret, $dbh, $name ) = ( 
     $self->app->config->{secrets}[0],
     $self->app->{dbh},
@@ -36,9 +37,15 @@ sub run  {
     password => $password
   });
 
-  
 }
 
+# ========================= FUNCTIONS ================================ #
+
+# unique - check to see if user input is unique in DB
+# @param - <string> col - column to check for uniqueness
+# @param - <string> question - question to ask for user input
+# @param - <integer> _tries - number of tries already done (default: 0)
+# @returns - <bool> true or false if the value provided is unique 
 sub unique {
   my ($self, $col, $question, $_tries ) = @_;
   my $tries = ($_tries) ? $_tries : 1;
@@ -55,6 +62,9 @@ sub unique {
   return $value;
 }
 
+# last_id - get the last id used a table
+# @param - <string> table - table name to check
+# @returns - <integer> the last id in the table records
 sub last_id
 {
   my ($self, $table ) = @_;

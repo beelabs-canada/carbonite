@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head><title><%= title %></title></head>
+  <head><title><%= title %></title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  </head>
   <body><%= content %></body>
 </html>
