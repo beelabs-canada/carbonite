@@ -1,3 +1,4 @@
 extlib
 sites
-database.sqlite
+db/database.sqlite
+/db/database.sqlite

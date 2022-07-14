@@ -17,6 +17,7 @@ sub startup {
   $self->secrets($config->{secrets});
 
   push @{$self->app->commands->namespaces}, 'Carbonite::Command';
+  push @{$self->app->commands->namespaces}, 'Carbonite::Plugin';
 
   # Database
   $self->app->{dbh} = $self->_db( $config );
